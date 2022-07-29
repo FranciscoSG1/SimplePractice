@@ -1,0 +1,78 @@
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+Processing by Api::AppointmentsController#index as HTML
+Completed 200 OK in 3ms (ActiveRecord: 0.0ms | Allocations: 65)
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Create (3.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Dr. One"], ["created_at", "2022-07-21 04:24:14.955321"], ["updated_at", "2022-07-21 04:24:14.955321"]]
+  [1m[35m (1.8ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Create (0.6ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Dr. One"], ["created_at", "2022-07-21 04:24:15.069877"], ["updated_at", "2022-07-21 04:24:15.069877"]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPatient Create (3.0ms)[0m  [1m[32mINSERT INTO "patients" ("doctor_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["doctor_id", 2], ["name", "Patient Zero"], ["created_at", "2022-07-21 04:24:15.089424"], ["updated_at", "2022-07-21 04:24:15.089424"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAppointment Create (1.3ms)[0m  [1m[32mINSERT INTO "appointments" ("doctor_id", "patient_id", "created_at", "updated_at", "start_time", "duration_in_minutes") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["doctor_id", 1], ["patient_id", 1], ["created_at", "2022-07-21 04:24:15.101569"], ["updated_at", "2022-07-21 04:24:15.101569"], ["start_time", "2022-07-21 04:24:15.101104"], ["duration_in_minutes", 50]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments"[0m
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Create (1.3ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Dr. One"], ["created_at", "2022-07-21 04:24:15.131285"], ["updated_at", "2022-07-21 04:24:15.131285"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors"[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Create (1.2ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Dr. One"], ["created_at", "2022-07-21 04:24:15.158458"], ["updated_at", "2022-07-21 04:24:15.158458"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPatient Create (0.8ms)[0m  [1m[32mINSERT INTO "patients" ("doctor_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["doctor_id", 4], ["name", "Patient Zero"], ["created_at", "2022-07-21 04:24:15.176676"], ["updated_at", "2022-07-21 04:24:15.176676"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients"[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+Processing by Api::AppointmentsController#index as HTML
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 64)
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments"[0m
+  [1m[35m (1.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Create (6.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Dr. One"], ["created_at", "2022-07-23 01:23:47.109599"], ["updated_at", "2022-07-23 01:23:47.109599"]]
+  [1m[35m (1.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Create (0.9ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Dr. One"], ["created_at", "2022-07-23 01:23:47.176781"], ["updated_at", "2022-07-23 01:23:47.176781"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPatient Create (1.4ms)[0m  [1m[32mINSERT INTO "patients" ("doctor_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["doctor_id", 2], ["name", "Patient Zero"], ["created_at", "2022-07-23 01:23:47.186038"], ["updated_at", "2022-07-23 01:23:47.186038"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAppointment Create (1.1ms)[0m  [1m[32mINSERT INTO "appointments" ("doctor_id", "patient_id", "created_at", "updated_at", "start_time", "duration_in_minutes") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["doctor_id", 1], ["patient_id", 1], ["created_at", "2022-07-23 01:23:47.196465"], ["updated_at", "2022-07-23 01:23:47.196465"], ["start_time", "2022-07-23 01:23:47.195885"], ["duration_in_minutes", 50]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "appointments"[0m
+  [1m[35m (1.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Create (1.4ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Dr. One"], ["created_at", "2022-07-23 01:23:47.233807"], ["updated_at", "2022-07-23 01:23:47.233807"]]
+  [1m[35m (1.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "doctors"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDoctor Create (1.5ms)[0m  [1m[32mINSERT INTO "doctors" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Dr. One"], ["created_at", "2022-07-23 01:23:47.263702"], ["updated_at", "2022-07-23 01:23:47.263702"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPatient Create (1.3ms)[0m  [1m[32mINSERT INTO "patients" ("doctor_id", "name", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["doctor_id", 4], ["name", "Patient Zero"], ["created_at", "2022-07-23 01:23:47.285479"], ["updated_at", "2022-07-23 01:23:47.285479"]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "patients"[0m
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
